@@ -19,7 +19,9 @@ function App() {
   useEffect(() => {
     axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
     .then(res => {
-      setCoins(res.data); // res: response
+      // axiois.get으로 받아온 데이터를 setCoins에 넣는다.
+      setCoins(res.data); // res: response 임의지정한 키워드.
+      console.log(res.data)
     })
     .catch(error => console.log(error))
   }, []);
