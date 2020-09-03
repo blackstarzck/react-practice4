@@ -6,7 +6,7 @@ import Coin from './Coin';
 
 
 function App() {
-  const [ coins, setCoins ] = useState([]);
+  const [ coins, setCoins ] = useState([]); // 자료형 데이터는 배열로 들어와야 한다.
   const [ search, setSearch ] = useState('');
   const handleChange = e => {
     setSearch(e.target.value)
@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
     .then(res => {
-      // axiois.get으로 받아온 데이터를 setCoins에 넣는다.
+      // axiois.get으로 받아온 자료형 데이터를 setCoins에 넣는다.
       setCoins(res.data); // res: response 임의지정한 키워드.
       console.log(res.data)
     })
